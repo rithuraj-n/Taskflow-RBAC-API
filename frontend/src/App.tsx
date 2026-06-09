@@ -70,10 +70,6 @@ export const App: React.FC = () => {
 
   return (
     <div className="app-container">
-      {/* Soft Skyblue Background Patches */}
-      <div className="mesh-gradient-blob blob-1"></div>
-      <div className="mesh-gradient-blob blob-2"></div>
-      <div className="mesh-gradient-blob blob-3"></div>
 
       {/* Toast Notification Container */}
       <div className="notification-container">
