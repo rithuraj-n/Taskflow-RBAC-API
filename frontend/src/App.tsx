@@ -15,19 +15,6 @@ export const App: React.FC = () => {
   const [user, setUser] = useState<any | null>(null);
   const [activeTab, setActiveTab] = useState<'tasks' | 'admin'>('tasks');
   const [notifications, setNotifications] = useState<Notification[]>([]);
-  const [stars, setStars] = useState<{ id: number; top: string; left: string; size: string; delay: string }[]>([]);
-
-  // Generate twinkling background stars
-  useEffect(() => {
-    const generatedStars = Array.from({ length: 70 }).map((_, i) => ({
-      id: i,
-      top: `${Math.random() * 100}%`,
-      left: `${Math.random() * 100}%`,
-      size: `${Math.random() * 2.5 + 0.5}px`,
-      delay: `${Math.random() * 5}s`,
-    }));
-    setStars(generatedStars);
-  }, []);
 
   // Load user from localStorage on init
   useEffect(() => {
@@ -83,27 +70,6 @@ export const App: React.FC = () => {
 
   return (
     <div className="app-container">
-      {/* Twinkling Star Field Background */}
-      <div className="stars-container-bg">
-        {stars.map((star) => (
-          <div
-            key={star.id}
-            className="star-element twinkling-star"
-            style={{
-              top: star.top,
-              left: star.left,
-              width: star.size,
-              height: star.size,
-              animationDelay: star.delay,
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Animated Mesh Background Blobs */}
-      <div className="mesh-gradient-blob blob-1"></div>
-      <div className="mesh-gradient-blob blob-2"></div>
-      <div className="mesh-gradient-blob blob-3"></div>
 
       {/* Toast Notification Container */}
       <div className="notification-container">
