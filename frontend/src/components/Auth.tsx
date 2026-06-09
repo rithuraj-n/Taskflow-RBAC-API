@@ -88,9 +88,9 @@ export const Auth: React.FC<AuthProps> = ({ onAuthSuccess, addNotification }) =>
         <form onSubmit={handleSubmit}>
           {isRegister && (
             <div className="form-group">
-              <label className="form-label">Full Name</label>
+              <label className="form-label">FULL NAME</label>
               <div style={{ position: 'relative' }}>
-                <UserIcon size={18} style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+                <UserIcon size={18} style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)' }} />
                 <input
                   type="text"
                   className="form-input"
@@ -106,9 +106,9 @@ export const Auth: React.FC<AuthProps> = ({ onAuthSuccess, addNotification }) =>
           )}
 
           <div className="form-group">
-            <label className="form-label">Email Address</label>
+            <label className="form-label">EMAIL ADDRESS</label>
             <div style={{ position: 'relative' }}>
-              <Mail size={18} style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+              <Mail size={18} style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)' }} />
               <input
                 type="email"
                 className="form-input"
@@ -122,9 +122,9 @@ export const Auth: React.FC<AuthProps> = ({ onAuthSuccess, addNotification }) =>
           </div>
 
           <div className="form-group">
-            <label className="form-label">Password</label>
+            <label className="form-label">PASSWORD</label>
             <div style={{ position: 'relative' }}>
-              <Lock size={18} style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+              <Lock size={18} style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)' }} />
               <input
                 type={showPassword ? 'text' : 'password'}
                 className="form-input"
@@ -148,7 +148,7 @@ export const Auth: React.FC<AuthProps> = ({ onAuthSuccess, addNotification }) =>
 
           {isRegister && (
             <div className="form-group" style={{ marginBottom: '2rem' }}>
-              <label className="form-label">Account Role</label>
+              <label className="form-label">ACCOUNT ROLE</label>
               <div className="role-toggle-group">
                 <button
                   type="button"
@@ -176,7 +176,7 @@ export const Auth: React.FC<AuthProps> = ({ onAuthSuccess, addNotification }) =>
           <button
             type="submit"
             className="btn btn-primary"
-            style={{ width: '100%', padding: '0.85rem', marginTop: '0.5rem' }}
+            style={{ marginTop: '0.5rem' }}
             disabled={loading}
           >
             {loading ? 'Processing...' : isRegister ? 'Register Account' : 'Sign In'}
@@ -184,8 +184,13 @@ export const Auth: React.FC<AuthProps> = ({ onAuthSuccess, addNotification }) =>
         </form>
 
         <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
-          <button type="button" className="btn-text" onClick={toggleAuthMode}>
-            {isRegister ? 'Already have an account? Sign in' : "Don't have an account? Sign up"}
+          <button type="button" className="auth-switch-btn" onClick={toggleAuthMode}>
+            <span className="auth-switch-text">
+              {isRegister ? 'Already have an account? ' : "Don't have an account? "}
+            </span>
+            <span className="auth-action-link">
+              {isRegister ? 'Sign in' : 'Sign up'}
+            </span>
           </button>
         </div>
       </div>
